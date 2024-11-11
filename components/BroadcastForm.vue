@@ -71,7 +71,7 @@ async function submitBroadcast() {
   loading.value = true;
 
   try {
-    const response = await fetch('https://example.com/submit', {
+    const response = await fetch('http://localhost:3000/api/broadcast', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
