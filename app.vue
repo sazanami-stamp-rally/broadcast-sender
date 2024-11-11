@@ -16,7 +16,7 @@
           <span class="text-white text-2xl">📢</span>
         </div>
         <h1 class="text-2xl font-bold text-gray-800">アナウンス配信システム</h1>
-        <p class="text-gray-600 mt-2">グループワークのアナウンスを簡単に配信</p>
+        <p class="text-gray-600 mt-2">スタンプラリーユーザーへアナウンスを配信します</p>
       </div>
 
       <BroadcastForm 
