@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "start": "HOST=0.0.0.0 nuxt start"
+    "start": "HOST=0.0.0.0 node ./.output/server/index.mjs"
   },
   "dependencies": {
     "nuxt": "^3.13.0",
