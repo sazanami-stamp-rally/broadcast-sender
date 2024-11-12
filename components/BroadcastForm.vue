@@ -88,8 +88,6 @@ async function submitBroadcast() {
       throw new Error('送信に失敗しました。もう一度お試しください。');
     }
 
-    const result = await response.json(); // Process the response if needed
-
     emit('success');
     form.value = {
       ...form.value,
