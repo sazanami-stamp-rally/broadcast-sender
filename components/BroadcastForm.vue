@@ -80,6 +80,11 @@ async function submitBroadcast() {
     });
 
     if (!response.ok) {
+      // bodyのmessageが存在する場合、それをthrowする
+      const error = await response.json();
+      if (error.message) {
+        throw new Error(error.message);
+      }
       throw new Error('送信に失敗しました。もう一度お試しください。');
     }
 
@@ -87,8 +92,7 @@ async function submitBroadcast() {
 
     emit('success');
     form.value = {
-      boothId: '',
-      passcode: '',
+      ...form.value,
       title: '',
       body: ''
     };
