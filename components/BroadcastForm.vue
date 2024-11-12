@@ -4,15 +4,70 @@
 
     <div class="space-y-4">
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">ブースID</label>
-        <input v-model="form.boothId" type="text" required :disabled="loading"
+        <label class="block text-sm font-medium text-gray-700 mb-1">ブース</label>
+        <select v-model="form.boothId" type="text" required :disabled="loading"
           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50">
+          <option value="opening_ceremony">オープニングセレモニー</option>
+          <option value="cg_specialist_department_tc_competition_awards">CGスペシャリスト学科 TC コンペ表彰式</option>
+          <option value="cosplay_contest_appeal_time">コスプレコンテスト アピールタイム</option>
+          <option value="cultural_festival_free_stage">文化祭フリーステージ</option>
+          <option value="cosplay_contest_award_ceremony">コスプレコンテスト 表彰式</option>
+          <option value="bingo_tournament">ビンゴ大会</option>
+          <option value="charity_mochi_pounding_event">チャリティー餅つきイベント</option>
+          <option value="happy_music_live_event">HAPPY☆MUSIC ライブイベント</option>
+          <option value="baby_castella_shop">ベビーカステラ屋さん</option>
+          <option value="popcorn_presented_by_sazanami_development">ポップコーン Presented by さざなみ開発</option>
+          <option value="gyoza_no_hirano">餃子の平野</option>
+          <option value="yakitori_fugetsu">焼鳥風月（やきとりふうげつ）</option>
+          <option value="bird_summit">鳥馬鹿（うちょうてん）</option>
+          <option value="spiral_potato">ぐるぐるポテト</option>
+          <option value="thirsty_drink_stand">とれいんてぃドリンクスタンド</option>
+          <option value="cg_art_exhibition_and_screening">CG作品展示・上映</option>
+          <option value="duel_summoners_peak">決闘！召喚の頂</option>
+          <option value="sparking_zero_tournament">スパーキングゼロ！大会</option>
+          <option value="super_smash_bros_special_game_decisive_battle">大乱闘スマッシュブラザーズ SPECIAL ゲーム最終決定戦</option>
+          <option value="street_fighter_6_tournament">ストリートファイター6 トーナメント大会</option>
+          <option value="poke_festival">ポケフェスティバス</option>
+          <option value="duel_land">デュエランド</option>
+          <option value="encyclopedia_king_academy">百科王学園</option>
+          <option value="shotgun_roulette">ショットガンルーレット</option>
+          <option value="game_and_sip_studio_gs2">Game & Sip Studio (GS^2)</option>
+          <option value="maidrink_trident_shop">めいどりんく とらいでんと店</option>
+          <option value="retro_game_stadium">レトロゲームスタジアム</option>
+          <option value="fun_shooting_gallery">たのしい射的</option>
+          <option value="string_lottery">ひもくじ</option>
+          <option value="gt_graduation_project_exhibition">GT卒業制作展示</option>
+          <option value="game_department_international_exhibition">ゲーム学科国際交流作品展示</option>
+          <option value="gamelab_play_space">GameLab::PlaySpace</option>
+          <option value="sazanami_development">さざなみ開発</option>
+          <option value="puzzle_solving">謎解き</option>
+          <option value="game_square">ゲーム広場</option>
+          <option value="kicking_sniper">キッキングスナイパー</option>
+          <option value="dandelion_and_craftcube">蒲公英 & CRAFTCUBE</option>
+          <option value="one_coin_fortune_telling">ワンコイン占い</option>
+          <option value="team_print_the">チーム出た印</option>
+          <option value="debug_booth_1">デバッグブース1</option>
+          <option value="debug_booth_2">デバッグブース2</option>
+          <option value="debug_booth_3">デバッグブース3</option>
+          <option value="debug_booth_4">デバッグブース4</option>
+        </select>
       </div>
 
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">パスコード</label>
         <input v-model="form.passcode" type="password" required :disabled="loading"
           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">カテゴリ</label>
+        <select v-model="form.type" type="text" required :disabled="loading"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50">
+          <option value="booth">ブースからの案内</option>
+          <option value="booth_important">ブースからのの重要な案内</option>
+          <option value="event">セール, 対戦空きなどの案内</option>
+          <option value="staff">運営/スタッフからの案内</option> <!-- TODO: v-ifを設けて表示制御 -->
+        </select>
       </div>
 
       <div>
@@ -58,6 +113,7 @@ const loading = ref(false);
 const form = ref({
   boothId: '',
   passcode: '',
+  type: '',
   title: '',
   body: ''
 });
@@ -91,6 +147,7 @@ async function submitBroadcast() {
     emit('success');
     form.value = {
       ...form.value,
+      type: '',
       title: '',
       body: ''
     };
