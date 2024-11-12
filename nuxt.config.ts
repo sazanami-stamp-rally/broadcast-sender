@@ -5,5 +5,9 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@vueuse/motion/nuxt'
-  ]
+  ],
+  devServer: {
+    host: '0.0.0.0',
+    port: 3030
+  },
 })
