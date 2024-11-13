@@ -129,7 +129,7 @@ async function submitBroadcast() {
   const config = useRuntimeConfig();
 
   try {
-    const response = await fetch(`${config.public.apiUrl}/api/broadcast`, {
+    const response = await fetch(`${config.public.apiBaseUrl}/broadcast`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
