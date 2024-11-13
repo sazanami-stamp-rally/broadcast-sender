@@ -127,7 +127,7 @@ async function submitBroadcast() {
   loading.value = true;
 
   try {
-    const response = await fetch('http://localhost:3000/api/broadcast', {
+    const response = await fetch(`${import.meta.env.API_BASE_URL}/api/broadcast`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
