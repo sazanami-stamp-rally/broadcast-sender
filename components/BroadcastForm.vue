@@ -126,8 +126,10 @@ function handleSubmit() {
 async function submitBroadcast() {
   loading.value = true;
 
+  const config = useRuntimeConfig();
+
   try {
-    const response = await fetch(`${import.meta.env.API_BASE_URL}/api/broadcast`, {
+    const response = await fetch(`${config.public.apiUrl}/api/broadcast`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -56,6 +56,7 @@ const errorMessage = ref('')
 const confirmData = ref<CreateBroadcastRequest>({
   boothId: '',
   passcode: '',
+  type: '',
   title: '',
   body: ''
 })

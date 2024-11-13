@@ -10,4 +10,9 @@ export default defineNuxtConfig({
     host: '0.0.0.0',
     port: 3030
   },
+  runtimeConfig: {
+    public: {
+      apiUrl: process.env.API_URL || 'http://localhost:3000'
+    }
+  }
 })
